@@ -16,6 +16,7 @@
 
 import Combine
 import CoreData
+import sharedKit
 
 class DataController: ObservableObject {
     let container = NSPersistentContainer(name: "Fruitties")
@@ -28,5 +29,8 @@ class DataController: ObservableObject {
             print("CoreData Sqlite location", description.url?.path(percentEncoded: false) ?? "N/A")
         }
 
+        let appDatabase = databaseBuilder().buildAppDatabase()
+        appDatabase.cartDao()
+        
     }
 }

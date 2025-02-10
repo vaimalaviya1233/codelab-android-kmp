@@ -17,7 +17,10 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     // TODO add KSP + ROOM plugins
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
     // TODO add skie plugin
+    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -77,6 +80,8 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
+                implementation(libs.androidx.room.runtime)
+                implementation(libs.androidx.sqlite.bundled)
             }
         }
 
@@ -112,4 +117,17 @@ kotlin {
             }
         }
     }
+
+}
+
+// Should be its own top level block. For convenience, add at the bottom of the file
+dependencies {
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosX64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }

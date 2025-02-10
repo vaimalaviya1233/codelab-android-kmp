@@ -16,6 +16,7 @@
 
 import ConcurrencyExtras
 import CoreData
+import sharedKit
 
 protocol FruittieRepository {
     func getData() -> AsyncStream<[Fruittie]>

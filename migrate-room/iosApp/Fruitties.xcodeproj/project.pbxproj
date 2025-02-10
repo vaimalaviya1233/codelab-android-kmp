@@ -115,6 +115,7 @@
 		1800B0DF2CBFFD6B0035D9C5 /* FruittiesTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DCC1BDE2D3EA2B60017AC11 /* Database */,
 				18C09F4E2CC1591A00B22F47 /* Fake */,
 				18C09F472CC1584700B22F47 /* Mock */,
 				1800B0DA2CBFFD6B0035D9C5 /* AsyncStreamNSFetchRequestResultTests.swift */,
@@ -218,6 +219,13 @@
 				183004752CACE14F001DF9CA /* AsyncStream+NSFetchRequestResult.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2DCC1BDE2D3EA2B60017AC11 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {

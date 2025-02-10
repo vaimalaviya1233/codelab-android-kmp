@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24C101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="CartItem" representedClassName="CartItem" syncable="YES" codeGenerationType="class">
         <attribute name="count" attributeType="Integer 64" minValueString="1" defaultValueString="1" usesScalarValueType="YES"/>
         <relationship name="fruittie" maxCount="1" deletionRule="Nullify" destinationEntity="Fruittie" inverseName="cartItem" inverseEntity="Fruittie"/>

@@ -16,8 +16,9 @@
 package com.example.fruitties.kmptutorial.android.di
 
 import android.content.Context
-import androidx.room.Room
 import com.example.fruitties.kmptutorial.android.database.AppDatabase
+import com.example.fruitties.kmptutorial.android.database.buildAppDatabase
+import com.example.fruitties.kmptutorial.android.database.getDatabaseBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,9 +32,9 @@ internal object DatabaseModule {
 
     @Provides
     @Singleton
-    fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase = Room
-        .databaseBuilder(context, AppDatabase::class.java, "fruits.db")
-        .build()
+    fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return getDatabaseBuilder(context).buildAppDatabase()
+    }
 
     @Provides
     fun providesFruittieDao(appDatabase: AppDatabase) = appDatabase.fruittieDao()

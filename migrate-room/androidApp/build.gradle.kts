@@ -19,7 +19,6 @@ plugins {
     alias(libs.plugins.kotlinCompose)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.room)
     alias(libs.plugins.spotless)
     alias(libs.plugins.hilt)
 }
@@ -69,9 +68,6 @@ android {
             languageVersion = JavaLanguageVersion.of(17)
         }
     }
-    ksp {
-        arg("room.generateKotlin", "true")
-    }
 }
 
 dependencies {
@@ -93,8 +89,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
 
     // TODO switch this dependency to KMP-ready version
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
@@ -110,8 +105,4 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.test.junit)
     androidTestImplementation(libs.kotlinx.coroutines.test)
-}
-
-room {
-    schemaDirectory("$projectDir/schemas")
 }
