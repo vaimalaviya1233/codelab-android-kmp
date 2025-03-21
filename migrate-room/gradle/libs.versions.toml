@@ -22,7 +22,7 @@ androidx-room = "2.7.0-rc02"
 androidx-lifecycle = "2.8.7"
 kotlin = "2.1.10"
 kotlinx-coroutines = "1.10.1"
-ksp = "2.1.0-1.0.29"
+ksp = "2.1.10-1.0.31"
 ktorVersion = "3.0.2"
 spotless = "7.0.2"
 composeBom = "2025.03.00"
@@ -34,7 +34,7 @@ androidx-junit = "1.2.1"
 turbine = "1.2.0"
 androidx-sqlite = "2.5.0-alpha12"
 core = "1.6.1"
-skie = "0.10.0"
+skie = "0.10.1"
 
 [libraries]
 # TODO add room-runtime and sqlite-bundled dependencies
@@ -85,3 +85,4 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+skie = { id = "co.touchlab.skie", version.ref = "skie" }

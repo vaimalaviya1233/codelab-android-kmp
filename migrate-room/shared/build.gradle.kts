@@ -16,8 +16,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    alias(libs.plugins.skie)
     // TODO add KSP + ROOM plugins
-    // TODO add skie plugin
 }
 
 kotlin {
