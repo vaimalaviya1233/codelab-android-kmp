@@ -22,37 +22,42 @@ protocol CartRepository {
     func getCartItems() -> AsyncStream<[CartItem]>
 }
 
-class DefaultFruittieRepository: FruittieRepository {
+class DefaultCartRepository: CartRepository {
     private let managedObjectContext: NSManagedObjectContext
-    private let api: FruittieApi
 
-    init(managedObjectContext: NSManagedObjectContext, api: FruittieApi) {
+    init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
-        self.api = api
     }
 
-    func getData() -> AsyncStream<[Fruittie]> {
+    func addToCart(fruittie: Fruittie) async throws {
         let context = managedObjectContext
-        Task {
-            let isEmpty = try await context.perform {
-                try context.fetch(Fruittie.fetchRequest()).isEmpty
-            }
+        try await context.perform {
+            let request = CartItem.fetchRequest()
+            request.predicate = NSPredicate(format: "fruittie == %@", fruittie)
+            let results = try context.fetch(request)
 
-            if isEmpty {
-                let response = try await api.getData(pageNumber: 0)
-                try await context.perform {
-                    response.feed.forEach { newItem in
-                        let fruittie = Fruittie(context: context)
-                        fruittie.name = newItem.name
-                        fruittie.fullName = newItem.fullName
-                    }
+            if results.isEmpty {
+                let newItem = CartItem(context: context)
+                newItem.fruittie = fruittie
+                newItem.count = 1
+            } else {
+                if results.count > 1 {
+                    print(
+                        "Warning: Multiple CartItem for Fruittie \(fruittie.name!)"
+                    )
+                }
 
-                    try context.save()
+                results.forEach {
+                    $0.count += 1
                 }
             }
-        }
 
+            try context.save()
+        }
+    }
+
+    func getCartItems() -> AsyncStream<[CartItem]> {
         return AsyncStream.resultsStream(
-            request: Fruittie.fetchRequest(), in: context)
+            request: CartItem.fetchRequest(), in: managedObjectContext)
     }
 }
