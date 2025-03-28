@@ -32,7 +32,7 @@ internal object DatabaseModule {
     @Provides
     @Singleton
     fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase = Room
-        .databaseBuilder(context, AppDatabase::class.java, "fruits.db")
+        .databaseBuilder(context, AppDatabase::class.java, "sharedfruits.db")
         .build()
 
     @Provides
