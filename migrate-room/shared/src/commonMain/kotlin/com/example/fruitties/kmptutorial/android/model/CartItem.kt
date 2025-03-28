@@ -20,7 +20,10 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import kotlin.experimental.ExperimentalObjCName
+import kotlin.native.ObjCName
 
+@OptIn(ExperimentalObjCName::class)
 @Entity(
     foreignKeys = [
         ForeignKey(
@@ -31,6 +34,7 @@ import androidx.room.Relation
         ),
     ],
 )
+@ObjCName("CartItemEntity")
 data class CartItem(@PrimaryKey val id: Long, val count: Int = 1)
 
 data class CartItemWithFruittie(

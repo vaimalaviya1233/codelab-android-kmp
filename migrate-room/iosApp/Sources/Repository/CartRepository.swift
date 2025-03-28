@@ -14,7 +14,7 @@ import ConcurrencyExtras
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import CoreData
+import sharedKit
 
 protocol CartRepository {
     func addToCart(fruittie: Fruittie) async throws
@@ -22,37 +22,20 @@ protocol CartRepository {
     func getCartItems() -> AsyncStream<[CartItem]>
 }
 
-class DefaultFruittieRepository: FruittieRepository {
-    private let managedObjectContext: NSManagedObjectContext
-    private let api: FruittieApi
-
-    init(managedObjectContext: NSManagedObjectContext, api: FruittieApi) {
-        self.managedObjectContext = managedObjectContext
-        self.api = api
+class DefaultCartRepository: CartRepository {
+    private let cartDao: any CartDao
+    
+    init(cartDao: any CartDao) {
+        self.cartDao = cartDao
     }
 
-    func getData() -> AsyncStream<[Fruittie]> {
-        let context = managedObjectContext
-        Task {
-            let isEmpty = try await context.perform {
-                try context.fetch(Fruittie.fetchRequest()).isEmpty
-            }
+    func addToCart(fruittie: Fruittie) async throws {
+        try await cartDao.insertOrIncreaseCount(fruittie: fruittie.entity)
+    }
 
-            if isEmpty {
-                let response = try await api.getData(pageNumber: 0)
-                try await context.perform {
-                    response.feed.forEach { newItem in
-                        let fruittie = Fruittie(context: context)
-                        fruittie.name = newItem.name
-                        fruittie.fullName = newItem.fullName
-                    }
-
-                    try context.save()
-                }
-            }
-        }
-
-        return AsyncStream.resultsStream(
-            request: Fruittie.fetchRequest(), in: context)
+    func getCartItems() -> AsyncStream<[CartItem]> {
+        return cartDao.getAll().map { entities in
+            entities.map(CartItem.init(entity:))
+        }.eraseToStream()
     }
 }

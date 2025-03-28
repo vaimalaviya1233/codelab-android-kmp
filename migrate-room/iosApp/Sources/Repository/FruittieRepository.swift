@@ -15,49 +15,40 @@
  */
 
 import ConcurrencyExtras
-import CoreData
 import sharedKit
 
 protocol FruittieRepository {
     func getData() -> AsyncStream<[Fruittie]>
 }
 
-class DefaultCartRepository: CartRepository {
-    private let managedObjectContext: NSManagedObjectContext
+class DefaultFruittieRepository: FruittieRepository {
+    private let fruittieDao: any FruittieDao
+    private let api: FruittieApi
 
-    init(managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
+    init(fruittieDao: any FruittieDao, api: FruittieApi) {
+        self.fruittieDao = fruittieDao
+        self.api = api
     }
 
-    func addToCart(fruittie: Fruittie) async throws {
-        let context = managedObjectContext
-        try await context.perform {
-            let request = CartItem.fetchRequest()
-            request.predicate = NSPredicate(format: "fruittie == %@", fruittie)
-            let results = try context.fetch(request)
-
-            if results.isEmpty {
-                let newItem = CartItem(context: context)
-                newItem.fruittie = fruittie
-                newItem.count = 1
-            } else {
-                if results.count > 1 {
-                    print(
-                        "Warning: Multiple CartItem for Fruittie \(fruittie.name!)"
+    func getData() -> AsyncStream<[Fruittie]> {
+        let dao = fruittieDao
+        Task {
+            let isEmpty = try await dao.count() == 0
+            if isEmpty {
+                let response = try await api.getData(pageNumber: 0)
+                let fruitties = response.feed.map {
+                    FruittieEntity(
+                        id: 0,
+                        name: $0.name,
+                        fullName: $0.fullName,
+                        calories: ""
                     )
                 }
-
-                results.forEach {
-                    $0.count += 1
-                }
+                _ = try await dao.insert(fruitties: fruitties)
             }
-
-            try context.save()
         }
-    }
-
-    func getCartItems() -> AsyncStream<[CartItem]> {
-        return AsyncStream.resultsStream(
-            request: CartItem.fetchRequest(), in: managedObjectContext)
+        return dao.getAll().map { entities in
+            entities.map(Fruittie.init(entity:))
+        }.eraseToStream()
     }
 }

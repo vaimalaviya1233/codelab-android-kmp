@@ -26,7 +26,6 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.androidKotlinMultiplatformLibrary) apply false
-    // TODO add skie plugin
     alias(libs.plugins.skie) apply false
 }
 

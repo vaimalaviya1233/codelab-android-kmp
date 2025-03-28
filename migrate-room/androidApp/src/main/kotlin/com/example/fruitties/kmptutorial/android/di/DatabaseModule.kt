@@ -17,8 +17,7 @@ package com.example.fruitties.kmptutorial.android.di
 
 import android.content.Context
 import com.example.fruitties.kmptutorial.android.database.AppDatabase
-import com.example.fruitties.kmptutorial.android.database.buildAppDatabase
-import com.example.fruitties.kmptutorial.android.database.getDatabaseBuilder
+import com.example.fruitties.kmptutorial.shared.appDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,9 +31,8 @@ internal object DatabaseModule {
 
     @Provides
     @Singleton
-    fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return getDatabaseBuilder(context).buildAppDatabase()
-    }
+    fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase =
+        appDatabase(context)
 
     @Provides
     fun providesFruittieDao(appDatabase: AppDatabase) = appDatabase.fruittieDao()
@@ -42,3 +40,4 @@ internal object DatabaseModule {
     @Provides
     fun providesCartDao(appDatabase: AppDatabase) = appDatabase.cartDao()
 }
+

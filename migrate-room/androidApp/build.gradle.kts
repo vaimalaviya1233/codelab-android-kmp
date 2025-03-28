@@ -88,7 +88,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel)
     debugImplementation(libs.compose.ui.tooling)
 
-    // TODO switch this dependency to KMP-ready version
     implementation(libs.androidx.room.runtime)
 
     implementation(libs.hilt.android)

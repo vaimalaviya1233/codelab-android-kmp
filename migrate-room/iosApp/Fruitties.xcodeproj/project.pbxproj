@@ -31,6 +31,8 @@
 		2E8773602BC85C2400BF7C40 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87735F2BC85C2400BF7C40 /* CartView.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		A41A39FB2CF793B600685993 /* ConcurrencyExtras in Frameworks */ = {isa = PBXBuildFile; productRef = A41A39FA2CF793B600685993 /* ConcurrencyExtras */; };
+		D00226C22D9644DB004722DC /* Fruittie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00226C12D9644DB004722DC /* Fruittie.swift */; };
+		D00226C42D964519004722DC /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00226C32D964519004722DC /* CartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		7555FF7B242A565900829871 /* Fruitties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruitties.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D00226C12D9644DB004722DC /* Fruittie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruittie.swift; sourceTree = "<group>"; };
+		D00226C32D964519004722DC /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,6 @@
 		1800B0DF2CBFFD6B0035D9C5 /* FruittiesTests */ = {
 			isa = PBXGroup;
 			children = (
-				2DCC1BDE2D3EA2B60017AC11 /* Database */,
 				18C09F4E2CC1591A00B22F47 /* Fake */,
 				18C09F472CC1584700B22F47 /* Mock */,
 				1800B0DA2CBFFD6B0035D9C5 /* AsyncStreamNSFetchRequestResultTests.swift */,
@@ -131,6 +134,8 @@
 			children = (
 				1830047D2CACE2C6001DF9CA /* FruittieRepository.swift */,
 				183004912CB700C9001DF9CA /* CartRepository.swift */,
+				D00226C12D9644DB004722DC /* Fruittie.swift */,
+				D00226C32D964519004722DC /* CartItem.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -219,13 +224,6 @@
 				183004752CACE14F001DF9CA /* AsyncStream+NSFetchRequestResult.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		2DCC1BDE2D3EA2B60017AC11 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -407,11 +405,13 @@
 				183004822CACE30F001DF9CA /* ContentViewModel.swift in Sources */,
 				183004922CB700CA001DF9CA /* CartRepository.swift in Sources */,
 				1830047C2CACE2B0001DF9CA /* AppContainer.swift in Sources */,
+				D00226C22D9644DB004722DC /* Fruittie.swift in Sources */,
 				183004742CAC5744001DF9CA /* FruittieApi.swift in Sources */,
 				183004802CACE2FD001DF9CA /* DataController.swift in Sources */,
 				1885088B2CB99134003F8D5E /* main.swift in Sources */,
 				183004762CACE153001DF9CA /* AsyncStream+NSFetchRequestResult.swift in Sources */,
 				1830047A2CACE244001DF9CA /* FruittieView.swift in Sources */,
+				D00226C42D964519004722DC /* CartItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
