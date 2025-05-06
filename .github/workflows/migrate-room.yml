@@ -60,6 +60,8 @@ jobs:
       - name: Run xcodebuild
         uses: mxcl/xcodebuild@v3
         with:
-          scheme: KMPGetStartedCodelab
+          xcode: ^16
+          scheme: Fruitties
           platform: iOS
+          action: build
           working-directory: ${{ env.SAMPLE_PATH }}/iosApp   
