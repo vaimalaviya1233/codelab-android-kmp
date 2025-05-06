@@ -9,11 +9,11 @@ on:
       - end
     paths:
       - 'get-started/**'
-      - '.github/workflows/get-started.yaml'
+      - '.github/workflows/get-started.yml'
   pull_request:
     paths:
       - 'get-started/**'
-      - '.github/workflows/get-started.yaml'
+      - '.github/workflows/get-started.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }} # Unique group for each branch/workflow
