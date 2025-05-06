@@ -5,12 +5,16 @@ Each folder contains the code for a specific KMP codelab.
 
 ## 💻 Requirements
 
-[Latest version of Android Studio](https://developer.android.com/studio).
+- [Latest version of Android Studio](https://developer.android.com/studio).
+- [Latest version of XCode](https://developer.apple.com/xcode/) for building the iOS app. You're able to build the Android and shared part of the codebase without XCode.
 
 ## 🧬 Codelabs
 
-### [Migrate Room To KMP](https://developer.android.com/codelabs/kmp-migrate-room)
+### [Get Started With KMP](https://developer.android.com/codelabs/kmp-get-started)
+Learn how to get started with Kotlin Multiplatform from two separate Android and iOS projects.
 
+### [Migrate Room To KMP](https://developer.android.com/codelabs/kmp-migrate-room)
+Learn how to share the database of your app with Room and Kotlin Multiplatform.
 
 ## License
 
