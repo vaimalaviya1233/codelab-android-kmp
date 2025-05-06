@@ -15,9 +15,9 @@ on:
       - 'get-started/**'
       - '.github/workflows/get-started.yaml'
 
-  concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }} # Unique group for each branch/workflow
-    cancel-in-progress: true # Cancel previous jobs when a new commit is pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # Unique group for each branch/workflow
+  cancel-in-progress: true # Cancel previous jobs when a new commit is pushed
 
 env:
   SAMPLE_PATH: get-started
