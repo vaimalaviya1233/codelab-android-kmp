@@ -76,7 +76,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-                // Add KMP dependencies here
+                // TODO Add KMP dependencies here
             }
         }
 
@@ -113,3 +113,7 @@ kotlin {
         }
     }
 }
+
+// TODO Add top level dependencies block with ksp and room plugins
+
+// TODO Add room configuration block

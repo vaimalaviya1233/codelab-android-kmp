@@ -27,7 +27,7 @@ fun Cart(
 
     Row(modifier = modifier.padding(16.dp)) {
         Text(
-            text = "Cart has ${cartItems.count()} items",
+            text = "Cart has ${cartItems.sumOf { it.cartItem.count }} items of ${cartItems.count()} types of fruit",
             modifier = Modifier
                 .weight(1f)
                 .padding(12.dp),

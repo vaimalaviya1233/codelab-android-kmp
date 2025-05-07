@@ -92,9 +92,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel)
     debugImplementation(libs.compose.ui.tooling)
 
+    ksp(libs.androidx.room.compiler)
     // TODO switch this dependency to KMP-ready version
     implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

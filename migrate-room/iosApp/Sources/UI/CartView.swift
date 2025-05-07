@@ -28,7 +28,7 @@ struct CartView : View {
             Text("Cart is empty, add some items").padding()
         } else {
             HStack {
-                Text("Cart has \(cartItems.count) items (\(cartItems.reduce(0) { $0 + $1.count }))")
+                Text("Cart has \(cartItems.reduce(0){$0 + $1.count}) items of \(cartItems.count) types of fruit")
                     .padding()
 
                 Spacer()
