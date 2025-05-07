@@ -52,7 +52,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DCC1BFC2D4100C80017AC11 /* Build configuration list for PBXNativeTarget "KMPGetStartedCodelab" */;
 			buildPhases = (
-				2DCC1BFF2D4101410017AC11 /* Run Script */,
+				2DCC1BFF2D4101410017AC11 /* Compile Kotlin */,
 				2DCC1BEA2D4100C60017AC11 /* Sources */,
 				2DCC1BEB2D4100C60017AC11 /* Frameworks */,
 				2DCC1BEC2D4100C60017AC11 /* Resources */,
@@ -116,7 +116,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DCC1BFF2D4101410017AC11 /* Run Script */ = {
+		2DCC1BFF2D4101410017AC11 /* Compile Kotlin */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
+			name = "Compile Kotlin";
 			outputFileListPaths = (
 			);
 			outputPaths = (
