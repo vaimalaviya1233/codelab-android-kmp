@@ -6,7 +6,7 @@ Each folder contains the code for a specific KMP codelab.
 ## 💻 Requirements
 
 - [Latest version of Android Studio](https://developer.android.com/studio).
-- [Latest version of XCode](https://developer.apple.com/xcode/) for building the iOS app. You're able to build the Android and shared part of the codebase without XCode.
+- [Latest version of Xcode](https://developer.apple.com/xcode/) for building the iOS app. You're able to build the Android and shared part of the codebase without Xcode.
 
 ## 🧬 Codelabs
 
