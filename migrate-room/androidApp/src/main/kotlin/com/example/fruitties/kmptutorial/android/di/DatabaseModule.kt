@@ -40,4 +40,3 @@ internal object DatabaseModule {
     @Provides
     fun providesCartDao(appDatabase: AppDatabase) = appDatabase.cartDao()
 }
-

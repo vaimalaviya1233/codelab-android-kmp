@@ -18,14 +18,13 @@ package com.example.fruitties.kmptutorial.android.repository
 import com.example.fruitties.kmptutorial.android.database.CartDao
 import com.example.fruitties.kmptutorial.android.model.CartItemWithFruittie
 import com.example.fruitties.kmptutorial.android.model.Fruittie
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
 
 interface CartRepository {
     val cartData: Flow<List<CartItemWithFruittie>>
     suspend fun addToCart(fruittie: Fruittie)
 }
-
 
 class DefaultCartRepository @Inject constructor(private val cartDao: CartDao) : CartRepository {
     override val cartData: Flow<List<CartItemWithFruittie>> = cartDao.getAll()

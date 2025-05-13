@@ -16,8 +16,8 @@
 package com.example.fruitties.kmptutorial.android.fakes
 
 import com.example.fruitties.kmptutorial.android.model.Fruittie
-import com.example.fruitties.kmptutorial.android.network.FruittiesResponse
 import com.example.fruitties.kmptutorial.android.network.FruittieApi
+import com.example.fruitties.kmptutorial.android.network.FruittiesResponse
 
 class FakeFruittieApi(val list: List<Fruittie>) : FruittieApi {
     override suspend fun getData(pageNumber: Int): FruittiesResponse = FruittiesResponse(list, 1, 1)
