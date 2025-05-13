@@ -1,6 +1,6 @@
-# Migrate existing apps to Room KMP Codelab
+# Get Started With Kotlin Multiplatform Codelab
 
-This folder contains the source code for the [Migrate existing apps to Room KMP Codelab](http://goo.gle/kmp-migrate-room-codelab).
+This folder contains the source code for the [Get Started With Kotlin Multiplatform Codelab](https://goo.gle/kmp-get-started-codelab).
 
 
 ## License
