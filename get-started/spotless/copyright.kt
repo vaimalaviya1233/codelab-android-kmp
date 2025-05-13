@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 The Android Open Source Project
+ * Copyright $YEAR The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.fruitties.kmptutorial.android.fakes
-
-import com.example.fruitties.kmptutorial.android.model.Fruittie
-import com.example.fruitties.kmptutorial.android.network.FruittieApi
-import com.example.fruitties.kmptutorial.android.network.FruittiesResponse
-
-class FakeFruittieApi(val list: List<Fruittie>) : FruittieApi {
-    override suspend fun getData(pageNumber: Int): FruittiesResponse = FruittiesResponse(list, 1, 1)
-}
