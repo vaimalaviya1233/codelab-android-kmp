@@ -19,10 +19,10 @@ import com.example.fruitties.kmptutorial.android.database.FruittieDao
 import com.example.fruitties.kmptutorial.android.model.Fruittie
 import com.example.fruitties.kmptutorial.android.network.FruittieApi
 import com.example.fruitties.kmptutorial.android.network.toModel
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 interface FruittieRepository {
     fun getData(): Flow<List<Fruittie>>

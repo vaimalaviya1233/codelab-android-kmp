@@ -35,11 +35,20 @@ subprojects {
             target("**/*.kt")
             targetExclude("${layout.buildDirectory}/**/*.kt")
             ktlint(libs.versions.ktlint.get())
+            licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
         }
 
         kotlinGradle {
             target("*.gradle.kts")
             ktlint(libs.versions.ktlint.get())
+            licenseHeaderFile(rootProject.file("spotless/copyright.kt"), "(^(?![\\/ ]\\*).*$)")
+        }
+
+        format("xml") {
+            target("**/*.xml")
+            targetExclude("**/build/**/*.xml")
+            // Look for the first XML tag that isn't a comment (<!--) or the xml declaration (<?xml)
+            licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
         }
     }
 }
